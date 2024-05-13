@@ -242,7 +242,7 @@ def pre_register():
         postmark.emails.send_with_template(
             TemplateId=35341396,
             TemplateModel={
-                'action_url': activation_token},
+                'action_url': 'https://properma.elias.uno/register?email='+email+'&token='+activation_token},
             From='properma@elias.uno',
             To=email,
         )
