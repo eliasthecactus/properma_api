@@ -451,7 +451,7 @@ def password_change():
                     if bcrypt.checkpw(currentPassword.encode('utf-8'), hashed_password.encode('utf-8')):
                         new_hashed_password = bcrypt.hashpw(newPassword.encode('utf-8'), user.salt.encode('utf-8'))
 
-                        user.password = new_hashed_password
+                        user.password = str(new_hashed_password, encoding="utf-8")
                         db.session.commit()
                         return jsonify(code='0', message='Password updated successfully'), 200
                     else:
