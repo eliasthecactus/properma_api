@@ -21,7 +21,7 @@ import psycopg2
 app = Flask(__name__)
 CORS(app)
 
-version = "1.0.0-b2"
+version = "1.0.0-b3"
 
 
 postmark = PostmarkClient(server_token='be4d882e-05e0-4ec5-8b79-188d034f678b', account_token='9a32a58c-d43a-4d24-92ba-9f26aad3f179', verbosity=3)
