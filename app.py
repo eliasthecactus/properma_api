@@ -150,11 +150,11 @@ def page_not_found(error):
 
 @app.route('/api/ping')
 def ping():
-    return jsonify({"message": "pong"}), 200
+    return jsonify(message="pong", code=0), 200
 
 @app.route('/api/version')
 def version_route():
-    return jsonify({"version": version}), 200
+    return jsonify(version=version, code='0'), 200
 
 @app.route('/api/authping')
 @jwt_required()
