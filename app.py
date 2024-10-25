@@ -35,7 +35,7 @@ process_running = False
 # app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql://{db_user}:{db_password}@{db_host}:{db_port}/{db_database}'
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:password@127.0.0.1:5432/postgres'
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://db_a2if_user:bMKAOKZZv3JqrncmHOtQ3MGgjUJCLwtZ@dpg-crdadct2ng1s73fr6fu0-a.frankfurt-postgres.render.com/db_a2if'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://username:password@127.0.0.1/db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['JWT_SECRET_KEY'] = os.environ.get('JWT_SECRET_KEY', 'eyJSb2xlIjoiQWRtaW4iLCJJc3N1ZXIiOiJJc3N1ZXIiLeJVc2VybmFtZSI6IkphdmFiblVzZSIsImV4cCI6MTcxNTU0O1A4MCwiaWF0IjoxNzE1NTQ4MDgwfQ.FoLK5mWsOVR5CzVVanvr2QdtnNLUnZjMHn0SsFIXW08')
 app.config['JWT_BLACKLIST_ENABLED'] = True
@@ -1182,4 +1182,4 @@ def create_ressource_connection():
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()
-    app.run(debug=False, host='0.0.0.0', port=5000)
+    app.run(debug=False, host='0.0.0.0', port=5001)
