@@ -1,14 +1,23 @@
-version: '3.8'
-
 services:
-  postgres:
-    image: postgres:latest
-    container_name: postgres
-    environment:
-      POSTGRES_DB: db
-      POSTGRES_USER: username
-      POSTGRES_PASSWORD: password
-    volumes:
-      - ./data:/var/lib/postgresql/data
+  properma-db:
+    container_name: properma-db
+    image: postgres:16-alpine
     ports:
-      - "5432:5432"
+      - 5432:5432
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=hfdsa76d587sdf
+      - POSTGRES_USER=properma
+      - POSTGRES_DB=db
+  properma-api:
+    container_name: properma-api
+    build: .
+    ports:
+      - "80:5001"
+    depends_on:
+      - properma-db
+    environment:
+      - PROPERMA_DATABASE_URL=postgresql://properma:hfdsa76d587sdf@properma-db/db
+      - JWT_SECRET_KEY=FD4D90CCD0C5BB1A3AB172FB80A2AD9ECAD4A357A799E5
+

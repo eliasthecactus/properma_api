@@ -35,7 +35,8 @@ process_running = False
 # app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql://{db_user}:{db_password}@{db_host}:{db_port}/{db_database}'
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:password@127.0.0.1:5432/postgres'
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://username:password@127.0.0.1/db'
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://username:password@127.0.0.1/db'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('PROPERMA_DATABASE_URL','postgresql://username:password@127.0.0.1/db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['JWT_SECRET_KEY'] = os.environ.get('JWT_SECRET_KEY', 'eyJSb2xlIjoiQWRtaW4iLCJJc3N1ZXIiOiJJc3N1ZXIiLeJVc2VybmFtZSI6IkphdmFiblVzZSIsImV4cCI6MTcxNTU0O1A4MCwiaWF0IjoxNzE1NTQ4MDgwfQ.FoLK5mWsOVR5CzVVanvr2QdtnNLUnZjMHn0SsFIXW08')
 app.config['JWT_BLACKLIST_ENABLED'] = True
